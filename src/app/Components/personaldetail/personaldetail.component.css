@@ -1,0 +1,41 @@
+.personal-detail .img-width{
+    width: 40%;
+}
+
+.personal-detail .btn-upload button{
+    margin-top: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    background-color: #fff;
+    color: var(--main-color);
+    padding: 8px 16px;
+    transition: all 0.5s;
+}
+
+.personal-detail .btn-upload button:hover{
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+
+.personal-detail .personal-info{
+    border-radius: 20px;
+}
+
+.personal-detail .personal-info label{
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.personal-detail .update-btn{
+    border: none;
+    border-radius: 7px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 800;
+    padding: 7px 14px;
+    transition: all 0.3s;
+}
+.personal-detail .update-btn:hover{
+    background-color: #082f49;
+}

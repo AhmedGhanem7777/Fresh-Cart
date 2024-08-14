@@ -1,0 +1,157 @@
+.container {
+    background-color: rgb(240, 243, 242);
+    margin: 100px auto 250px !important;
+}
+
+
+.arrow-button {
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: all 0.4s;
+}
+
+.arrow-button:hover {
+    transform: translateX(-10px) scale(1.1);
+}
+
+
+.main-color {
+    color: var(--main-color);
+}
+
+.second-color {
+    color: var(--second-color);
+}
+
+.img-border {
+    border: 1px solid #00000009;
+}
+
+
+.cart .info a {
+    transition: all 0.4s;
+}
+
+.cart .info a:hover {
+    color: var(--main-color);
+}
+
+.cart .info h4 {
+    font-weight: 300;
+}
+
+.cart .info h4 span {
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.cart .info p {
+    opacity: 0.5;
+}
+
+.cart .info p span {
+    opacity: 1 !important;
+    color: rgb(34, 197, 94);
+}
+
+.cart-btn,
+.btn-add-product-fav {
+    border: none;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.cart-btn:hover,
+.btn-add-product-fav:hover {
+    background-color: #02ade3;
+}
+
+.remove-btn,
+.remove-all {
+    border: none;
+    background-color: rgb(220 38 38);
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.remove-btn:hover,
+.remove-all:hover {
+    background-color: #ef4444;
+}
+
+.after-product:after {
+    content: "";
+    width: 90%;
+    height: 2px;
+    background-color: #e5e7eb;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+.cart .count {
+    border: 1px solid #d6d7da;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.btn-plus,
+.btn-minus {
+    border: none;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+.btn-plus:hover,
+.btn-minus:hover {
+    color: var(--main-color);
+}
+
+
+
+.remove-product .icon-remove{
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(220, 38, 38,0);
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+.remove-product .icon-remove i {
+    font-size: 20px;
+    transition: all 0.4s;
+    color: rgba(107 ,114 ,128,0.8);
+}
+.remove-product .icon-remove:hover{
+    border-color: rgba(220 ,38, 38,1);
+}
+.remove-product .icon-remove:hover i{
+    transform: rotate(180deg);
+    color: #dc2626;
+}
+
+.check-out button{
+    border: none;
+    border: 1px solid #d6d7da;
+    border-radius: 10px;
+    background-color: #fff;
+    color: var(--main-color);
+    padding: 10px 20px;
+    transition: all 0.4s;
+}
+
+.check-out button:hover{
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: #fff;
+}

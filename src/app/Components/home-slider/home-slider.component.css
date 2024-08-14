@@ -1,0 +1,44 @@
+.home-slider .slider{
+    height: 730px;
+}
+.home-slider .slider img{
+    width: 100%;
+    height: 700px;
+}
+
+.slider-info{
+    position: absolute;
+    top: 25px;
+    left: 20px;
+}
+
+.slider-info .logo span{
+    background-color: #fff;
+
+}
+
+
+.slider-info .info p{
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-slider);
+}
+
+.slider-info .slider-btn{
+    background-color: var(--main-color);
+    color: #fff;
+    transition: all 0.4s;
+}
+
+.slider-info .slider-btn:hover{
+    background-color: var(--main-color-hover);
+}
+
+
+.home-slider .static-images{
+    height: 700px;
+}
+.home-slider .static-images img{
+    width: 100%;
+    height: 350px;
+}

@@ -1,0 +1,10 @@
+.signup{
+    margin: 100px auto !important;
+}
+.btn-register{
+    border: none;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 16px;
+}

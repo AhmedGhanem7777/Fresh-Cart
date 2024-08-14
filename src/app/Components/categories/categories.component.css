@@ -1,0 +1,54 @@
+.categories .title h2::before{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #e5e7eb;
+    position: absolute;
+    top: -50%;
+    left: 0;
+}
+.categories .title h2::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #e5e7eb;
+    position: absolute;
+    top: 150%;
+    left: 0;
+}
+
+.main-color{
+    color: var(--main-color);
+}
+
+.categories .content:hover .category-image img{
+    transform: scale(1.1);
+}
+
+
+
+
+.category-box{
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.category-image{
+    width: 100%;
+    overflow: hidden;
+}
+
+.category-image img{
+    /* width: 100%; */
+    width: 150px;
+    height: 150px;
+    transition: all 0.4s;
+}
+
+.category-box .category-name h3{
+    font-size: 24px;
+    font-weight: 600;
+}

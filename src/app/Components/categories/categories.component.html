@@ -1,0 +1,24 @@
+<section class="categories py-5">
+    <div class="container">
+        <div class="row justify-content-center g-5">
+            <div class="col-md-12">
+                <div class="title py-5">
+                    <h2 class="position-relative text-center font-md main-color">Shop by category</h2>
+                </div>
+            </div>
+            <div class="col-md-2" *ngFor="let category of categories">
+                <a [routerLink]="['/categorydetails',category._id]" class="content d-flex flex-column justify-content-center align-items-center">
+                    <div class="category-box p-2">
+                        <div class="category-image">
+                            <img [src]="category.image" [alt]="category.name">
+                        </div>
+                    </div>
+                    <div class="category-name">
+                        <h3 class="text-center my-3">{{category.name}}</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,52 @@
+<section class="wishlist py-5">
+    <div class="container p-3 rounded-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="head d-flex">
+                    <div>
+                        <button (click)="goBack()" class="arrow-button d-flex justify-content-center align-items-center"><i class="fa-solid fa-arrow-left font-md"></i></button>
+                    </div>
+                    <div class="text d-flex align-items-center">
+                        <h3 class="my-1 mx-2 font-bold font-lg second-color">Favorite Products <i class="fa-brands fa-gratipay main-color"></i></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="allWishlist.length > 0">
+                <div class="col-md-12 py-3 after-product position-relative" *ngFor="let product of allWishlist">
+                    <div class="row">
+                        <div class="col-md-2 d-flex justify-content-end">
+                            <div class="image overflow-hidden w-75">
+                                <img [src]="product.imageCover" class="w-100 rounded-5 img-border" [alt]="product.category.name">
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="info">
+                                <a [routerLink]="['/productdetails',product._id]" class="font-bold font-md second-color">{{product.title}}</a>
+                                <h4>Rate:<span class="ms-2"><i class="fa-solid fa-star rating-color"></i> {{product.ratingsAverage}}</span></h4>
+                                <h4>Price:<span class="ms-2">EGP {{product.price}}</span></h4>
+                                <p>{{product.category?.name}} | {{product.brand?.name}} | <span>Available</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-end align-items-center">
+                            <div class="btns">
+                                <button (click)="addToCart(product._id)" class="cart-btn font-sm mx-1"><i class="fa-solid fa-cart-plus"></i> ADD TO CART</button>
+                                <button (click)="removeItem(product._id)" class="remove-btn font-sm mx-1"><i class="fa-solid fa-trash-can"></i> REMOVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center align-items-center">
+                    <div class="my-3">
+                        <button (click)="removeAllFav()" class="remove-all"><i class="fa-solid fa-trash-can"></i> REMOVE ALL</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="allWishlist.length <= 0" class="d-flex justify-content-center align-items-center">
+                <div class="my-5">
+                    <p class="text-center">There are not products yet.</p>
+                    <button [routerLink]="['/products']" class="btn-add-product-fav">Add your first product to favorit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

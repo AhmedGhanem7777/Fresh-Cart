@@ -1,0 +1,17 @@
+<!-- <app-navbar></app-navbar>
+<div>
+    <router-outlet *ngIf="!(isLoading$|async)"></router-outlet>
+    <app-loading *ngIf="isLoading$|async"></app-loading>
+</div>
+<app-footer></app-footer> -->
+
+
+
+<app-navbar></app-navbar>
+<div>
+  <router-outlet></router-outlet>
+  <div *ngIf="_LoadingService.isLoading | async">
+    <app-loading></app-loading>
+  </div>
+</div>
+<app-footer></app-footer>

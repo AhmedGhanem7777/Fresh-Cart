@@ -1,0 +1,84 @@
+<section class="container rounded-4">
+    <div class="cart my-3 p-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="head">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class=" d-flex">
+                                <div>
+                                    <button (click)="goBack()" class="arrow-button d-flex justify-content-center align-items-center"><i class="fa-solid fa-arrow-left font-md"></i></button>
+                                </div>
+                                <div class="text d-flex align-items-center">
+                                    <h3 class="my-1 mx-2 font-bold font-lg second-color">Shop Cart <i class="fa-brands fa-opencart main-color"></i></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column align-items-end justify-content-center">
+                                <div class="total-price d-flex">
+                                    <p class="">Total Price: <span class="main-color">EGP {{cartDetails.totalCartPrice}}</span></p>
+                                </div>
+                                <div class="check-out">
+                                    <button [routerLink]="['/checkout']" class="w-100">Check Out</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="cartDetails && cartDetails.products && cartDetails.products.length > 0">
+                <div class="col-md-12 py-3 after-product position-relative" *ngFor="let product of cartDetails.products">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 d-flex justify-content-end">
+                            <div class="image overflow-hidden w-75">
+                                <img [src]="product.product?.imageCover" class="w-100 rounded-5 img-border" [alt]="product.product?.category.name">
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center">
+                            <div class="info">
+                                <a [routerLink]="['/productdetails',product?.product?._id]" class="font-bold font-md second-color">{{product.product?.title}}</a>
+                                <h4>Rate:<span class="ms-2"><i class="fa-solid fa-star rating-color"></i> {{product.product?.ratingsAverage}}</span></h4>
+                                <h4>Price:<span class="ms-2">EGP {{product.price}}</span></h4>
+                                <p>{{product.product?.category.name}} | {{product.product?.brand.name}} | <span>Available</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <div class="count font-md p-1">
+                                    <button class="btn-plus" (click)="updateItemCount(product.product._id,product.count-1)">-</button>
+                                    <span class="mx-3">{{product.count}}</span>
+                                    <button class="btn-minus" (click)="updateItemCount(product.product._id,product.count+1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="product-price font-sm d-flex flex-column justify-content-center align-items-center">
+                                <p class="p-0 m-0">Total Price</p>
+                                <span class="font-super-sm main-color">EGP {{getPriceForOneProduct(product.price,product.count)}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="remove-product">
+                                <div (click)="removeItem(product.product._id)" class="icon-remove d-flex justify-content-center align-items-center">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center align-items-center">
+                    <div class="my-3">
+                        <button (click)="onClearCart()" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Clear All Products</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="cartDetails.products?.length <= 0" class="d-flex justify-content-center align-items-center">
+                <div class="my-5">
+                    <p class="text-center">There are not products yet.</p>
+                    <button [routerLink]="['/products']" class="btn-add-product-fav">Add your first product to favorit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

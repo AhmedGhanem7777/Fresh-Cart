@@ -1,0 +1,24 @@
+<section class="py-5 my-5">
+    <div class="add-address box-shadow p-3 second-color w-25 mx-auto">
+        <h2 class="text-center font-bold font-lg">Add Address</h2>
+        <form [formGroup]="userAddress" (ngSubmit)="addUserAddress(userAddress)">
+            <label for="name">Name</label>
+            <input *ngIf="userAddressData[userAddressData.length-1]?.name !== null" class="form-control my-1" disabled [value]="userAddressData[userAddressData.length-1]?.name">
+            <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your new name">
+            
+            <label for="city">City</label>
+            <input *ngIf="userAddressData[userAddressData.length-1]?.city !== null" class="form-control my-1" disabled [value]="userAddressData[userAddressData.length-1]?.city">
+            <input formControlName="city" type="text" class="form-control" id="city" placeholder="Enter your new city">
+            
+            <label for="phone">Phone</label>
+            <input *ngIf="userAddressData[userAddressData.length-1]?.phone !== null" class="form-control my-1" disabled [value]="userAddressData[userAddressData.length-1]?.phone">
+            <input formControlName="phone" type="tel" class="form-control" id="phone" placeholder="Enter your new phone">
+            
+            <label for="details">Details</label>
+            <textarea *ngIf="userAddressData[userAddressData.length-1]?.details !== null" class="form-control my-1" cols="3" rows="2" disabled [value]="userAddressData[userAddressData.length-1]?.details"></textarea>
+            <textarea formControlName="details" id="details" class="form-control" cols="5" rows="3" placeholder="Enter your new details"></textarea>
+
+            <button class="add-address-btn mt-3">Add Address</button>
+        </form>
+    </div>
+</section>

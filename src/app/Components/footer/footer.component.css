@@ -1,0 +1,27 @@
+.footer{
+    background-color: rgb(240 243 242);
+}
+.text-gray{
+    color: rgb(107 114 128 );
+}
+.footer-btn{
+    border: none;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 16px;
+    margin-left: 10px;
+}
+
+.paymentTools{
+    border-top: 1px solid rgb(226 232 240);
+    border-bottom: 1px solid rgb(226 232 240);
+}
+.paymentTools-img .images img{
+    width: 70px;
+}
+
+
+.paymentTools .store img{
+    width: 80px;
+}

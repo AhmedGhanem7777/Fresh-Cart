@@ -1,0 +1,15 @@
+<section class="forgot-pass w-25 mx-auto text-center py-5">
+    <div class="head">
+        <h3 class="font-lg font-bold main-color">Forgot your password?</h3>
+        <p class="font-sm opacity-75">Your password will be reset by email.</p>
+    </div>
+    <div class="inp-forgot mt-5">
+        <form (ngSubmit)="forgetPass()">
+            <label for="email" class="font-sm font-simibold">Enter your email address</label>
+            <input [(ngModel)]="email" type="email" id="email" name="email" class="form-control w-50 mx-auto" required>
+
+            <button type="submit" class="save-btn w-50 mt-4 mb-2">Next</button>
+        </form>
+        <a [routerLink]="['/login']" class="font-sm font-simibold main-color">Back to login</a>
+    </div>
+</section>

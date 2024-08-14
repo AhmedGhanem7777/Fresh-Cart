@@ -1,0 +1,27 @@
+.add-address{
+    border-radius: 10px;
+}
+.add-address label{
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.add-address .add-address-btn{
+    border: none;
+    border-radius: 7px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 800;
+    padding: 7px 14px;
+    transition: all 0.3s;
+}
+
+.add-address .add-address-btn:hover{
+    background-color: #082f49;
+}
+
+
+.add-address input::placeholder,
+.add-address textarea::placeholder{
+    color: rgba(55, 65, 81,0.5);
+}

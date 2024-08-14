@@ -1,0 +1,54 @@
+<section class="py-5 my-5">
+    <div class="change-pass box-shadow p-3 second-color w-25 mx-auto my-4">
+      <h2 class="text-center font-bold font-lg">Password & Security</h2>
+      <form [formGroup]="newPass" (ngSubmit)="changePass()">
+        <div class="form-group">
+          <label for="currentPass">Current Password</label>
+          <input 
+            formControlName="currentPassword" 
+            type="password" 
+            class="form-control" 
+            id="currentPass"
+            [ngClass]="{'is-invalid': newPass.get('currentPassword')?.touched && newPass.get('currentPassword')?.invalid}">
+          <div *ngIf="newPass.get('currentPassword')?.touched && newPass.get('currentPassword')?.invalid" class="invalid-feedback">
+            Current password is required.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="newPass">New Password</label>
+          <input 
+            formControlName="password" 
+            type="password" 
+            class="form-control" 
+            id="newPass"
+            [ngClass]="{'is-invalid': newPass.get('password')?.touched && newPass.get('password')?.invalid}">
+          <div *ngIf="newPass.get('password')?.touched && newPass.get('password')?.hasError('required')" class="invalid-feedback">
+            New password is required.
+          </div>
+          <div *ngIf="newPass.get('password')?.touched && newPass.get('password')?.hasError('minlength')" class="invalid-feedback">
+            Password must be at least 6 characters long.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirmNewPass">Confirm New Password</label>
+          <input 
+            formControlName="rePassword" 
+            type="password" 
+            class="form-control" 
+            id="confirmNewPass"
+            [ngClass]="{'is-invalid': newPass.get('rePassword')?.touched && newPass.get('rePassword')?.invalid}">
+          <div *ngIf="newPass.get('rePassword')?.touched && newPass.get('rePassword')?.invalid" class="invalid-feedback">
+            Please confirm your new password.
+          </div>
+          <div *ngIf="newPass.get('password')?.value !== newPass.get('rePassword')?.value && newPass.get('rePassword')?.touched" class="invalid-feedback">
+            Passwords do not match.
+          </div>
+        </div>
+  
+        <button type="submit" class="update-btn mt-3" [disabled]="newPass.invalid">Update</button>
+      </form>
+    </div>
+  </section>
+  

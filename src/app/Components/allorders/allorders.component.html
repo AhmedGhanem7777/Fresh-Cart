@@ -1,0 +1,139 @@
+<section class="container py-5 my-5">
+    <div class=" d-flex">
+        <div>
+            <button (click)="goBack()" class="arrow-button d-flex justify-content-center align-items-center"><i class="fa-solid fa-arrow-left font-md"></i></button>
+        </div>
+        <div class="text d-flex align-items-center">
+            <h3 class="my-1 mx-2 font-bold font-lg second-color">Track your orders <i class="fa-solid fa-truck-fast main-color ms-1"></i></h3>
+        </div>
+    </div>
+    <div class="single-order p-4 my-4" *ngFor="let order of userAllOrders">
+        <div class="head">
+            <div class="row">
+                <div class="col-md-3">
+                    <div>
+                        <p class="font-bold second-color">Transaction Number :<span class="font-no-bold opacity-75"> # {{order.id}}</span></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <p class="font-bold second-color">Placed on :<span class="font-no-bold opacity-75"> {{order.createdAt}}</span></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <p class="font-bold second-color">Payment :<span class="font-no-bold opacity-75"> {{order.paymentMethodType}}</span></p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <button class="add-items" [routerLink]="['/products']">Add New Items</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content mt-5">
+            <div class="row">
+                <!-- Start Order Details -->
+                <div class="col-md-8">
+                    <div class="single-product">
+                        <div *ngFor="let info of order.cartItems; let i = index">
+                            <div class="row g-2" *ngIf="i % 2 === 0">
+                                <div class="col-md-6" *ngIf="order.cartItems[i]">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="image my-2">
+                                                <img [src]="order.cartItems[i].product.imageCover" class="w-100" [alt]="order.cartItems[i].product.tilte">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info d-flex flex-column">
+                                                <a class="font-simibold second-color">{{order.cartItems[i].product.title | cuttext:2}}</a>
+                                                <p class="my-1 second-color">Price : <span class="main-color">EGP {{order.cartItems[i].price}}</span></p>
+                                                <p class="my-1 second-color">Quantity : <span class="main-color">{{order.cartItems[i].count}}</span></p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i].product.category.name}}</p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i].product.brand.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" *ngIf="order.cartItems[i + 1]">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="image">
+                                                <img [src]="order.cartItems[i + 1].product.imageCover" class="w-100" [alt]="order.cartItems[i+1].product.category.name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info d-flex flex-column">
+                                                <a class="font-simibold second-color">{{order.cartItems[i + 1].product.title | cuttext:2}}</a>
+                                                <p class="my-1 second-color">Price : <span class="main-color">EGP {{order.cartItems[i + 1].price}}</span></p>
+                                                <p class="my-1 second-color">Quantity : <span class="main-color">{{order.cartItems[i + 1].count}}</span></p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i + 1].product.category.name}}</p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i + 1].product.brand.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Order Details -->
+
+                <!-- Start Status Order -->
+                <div class="col-md-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="status-order ">
+                            <div class="ordered border-success-order">
+                                <div class="order-badge bg-success-order">
+                                    <p class="ms-5">Ordered</p>
+                                </div>
+                            </div>
+                            <div class="confirmed border-success-order">
+                                <div class="order-badge bg-success-order">
+                                    <p class="ms-5">Confirmed</p>
+                                </div>
+                            </div>
+                            <div class="out-of-delivery {{order.isDelivered?'border-success':'border-fail'}}">
+                                <div class="order-badge {{order.isDelivered?'bg-success':'bg-fail'}}">
+                                    <p class="ms-5">Out for delivery</p>
+                                </div>
+                            </div>
+                            <div class="delivered {{order.isDelivered?'border-success':'border-fail'}}">
+                                <div class="order-badge {{order.isDelivered?'bg-success':'bg-fail'}}">
+                                    <p class="ms-5">Delivered</p>
+                                </div>
+                            </div>
+                            <div class="paid {{order.isPaid?'border-success':'border-fail'}}">
+                                <div class="order-badge {{order.isPaid?'bg-success':'bg-fail'}}">
+                                    <p class="ms-5">Paid</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Status Order -->
+
+                <!-- Start Order Summary -->
+                <div class="col-md-12">
+                    <div class="total-price mt-3">
+                        <p class="font-bold second-color">Products Quantity : <span class="main-color">{{order.cartItems.length}}</span></p>
+                        <p class="font-bold second-color">Shipping Price : <span class="main-color">EGP {{order.shippingPrice}}</span></p>
+                        <p class="font-bold second-color">taxes : <span class="main-color">EGP {{order.taxPrice}}</span></p>
+                        <span class="font-md font-bold second-color">Total Order Price : <span class="main-color">EGP {{order.totalOrderPrice}}</span></span>
+                    </div>
+                </div>
+                <!-- End Order Summary -->
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="userAllOrders.length <= 0" class="d-flex justify-content-center align-items-center py-5 my-5">
+        <div class="my-5">
+            <p class="text-center">There are not orders yet.</p>
+            <button [routerLink]="['/products']" class="btn-add-product-fav">Add your first order</button>
+        </div>
+    </div>
+</section>

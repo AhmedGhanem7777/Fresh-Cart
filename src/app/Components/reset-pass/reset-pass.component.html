@@ -1,0 +1,15 @@
+<section class="reset-pass w-25 mx-auto text-center py-5">
+    <div class="head">
+        <i class="fa-regular fa-envelope font-xl main-color"></i>
+        <h3 class="font-lg font-bold second-color">Check your email</h3>
+        <p class="font-sm opacity-75">Reset code sent to your email</p>
+    </div>
+    <div class="inp-reset mt-5">
+        <form (ngSubmit)="resetPass()">
+            <input [(ngModel)]="code" type="email" id="email" name="email" class="form-control w-50 mx-auto" placeholder="Enter Reset Code">
+
+            <button class="save-btn w-50 my-2">Next</button>
+        </form>
+        <a [routerLink]="['/forgotpass']" class="font-sm font-simibold main-color">Back forgot your password</a>
+    </div>
+</section>

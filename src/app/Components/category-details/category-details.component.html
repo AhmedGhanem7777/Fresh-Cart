@@ -1,0 +1,50 @@
+<div class="container py-5">
+    <div class="my-4" (click)="goBack()">
+        <button class="arrow-button d-flex justify-content-center align-items-center"><i class="fa-solid fa-arrow-left font-md"></i></button>
+    </div>
+
+    <div  *ngIf="categoryDetaile.length > 0">
+        <div class="row justify-content-center gy-3">
+            <div class="col-md-3" *ngFor="let product of categoryDetaile">
+                <a>
+                    <div class="product-box box-shadow">
+                        <div class="box-layer d-flex justify-content-evenly">
+                            <i (click)="addToFav(product._id)" class="fa-regular fa-heart my-1 cursor-pointer font-md heart"></i>
+                            <i (click)="addToCart(product._id)" class="fa-solid fa-cart-plus cursor-pointer font-md cart"></i>
+                            <i [routerLink]="['/productdetails',product._id]" class="fa-solid fa-eye my-1 cursor-pointer font-md eye"></i>
+                        </div>
+                        <div class="product-image">
+                            <img [src]="product.imageCover" [alt]="product.category.name" class="w-100">
+                        </div>
+                        <div class="product-info p-3 main-color">
+                            <h2 class="">{{product.title|cuttext:2}}</h2>
+                            <h3 class="second-color">{{product.category.name}}</h3>
+                            <div>
+                                <span class="brand">{{product.brand.name}}</span>
+                                <span class="text-dark"> | </span>
+                                <span class="text-green">Available</span>
+                            </div>
+                            <div class="price-rating d-flex justify-content-between mt-3">
+                                <div class="price">
+                                    <h5>EGP {{product.price}}</h5>
+                                </div>
+                                <div class="rating text-dark">
+                                    <a *ngFor="let star of product.ratingsAverage | rating; let i = index">
+                                      <i *ngIf="star === 0" class="fa-solid fa-star rating-color"></i>
+                                      <i *ngIf="star === 1" class="fa-solid fa-star-half-alt rating-color"></i>
+                                      <i *ngIf="star === 2" class="fa-regular fa-star rating-color"></i>
+                                    </a>
+                                    {{product.ratingsAverage | number:'1.1-1'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="categoryDetaile.length <= 0">
+        <img src="assets/img/no-product-found-DncxVh9z.png" alt="no product found">
+    </div>
+</div>
+

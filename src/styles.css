@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Inter:wght@100..900&family=Noto+Sans+Georgian:wght@100..900&family=Noto+Serif+Khitan+Small+Script&family=Outfit:wght@100..900&display=swap');
+
+:root {
+    /* --main-color: #ff7226; */
+    --hover-color: #e65405;
+    --light-color: #f0f3f2;
+    --shadow: rgba(33, 50, 66, 0.2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --shadow-opacity: rgba(145, 158, 171, 0) 0px 2px 4px -1px, rgba(145, 158, 171, 0) 0px 4px 5px 0px, rgba(145, 158, 171, 0) 0px 1px 10px 0px;
+    /* --font-family: 'Encode Sans Expanded', sans-serif; */
+    --font-navbar: "Noto Serif Khitan Small Script";
+    /* --font-family: "Noto Sans Georgian", sans-serif; */
+    --rating-color: #ffc908;
+    --shadow-opacity-brand: rgba(145, 158, 171, 0) 0px 2px 4px -1px, rgba(255, 114, 38, 0) 0px 4px 5px 0px, rgba(255, 114, 38, 0) 0px 1px 10px 0px;
+    --shadow-brand: rgba(145, 158, 171, 1) 0px 2px 4px -1px, rgba(255, 114, 38, 1) 0px 4px 5px 0px, rgba(255, 114, 38, 1) 0px 1px 10px 0px;
+    
+    
+    
+    
+    /* new Proj */
+    --font-family: 'Outfit', sans-serif;
+    --shadow-slider: inset 0 2px 4px 0 rgb(0 0 0 / .05);
+    --shadow-box-product: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+    --main-color: rgb(0, 153, 204);
+    --main-color-opacity: rgb(0, 153, 204,0);
+    --main-color-hover: rgb(2, 173, 227);
+    --second-color: #334155;
+}
+
+body {
+    font-family: var(--font-family) !important;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.rating-color {
+    color: var(--rating-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* .font-nav {
+    font-family: var(--font-navbar);
+    font-size: 20px;
+    font-weight: 600;
+} */
+
+/* .btn-nav {
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    transition: all 0.4s;
+}
+
+.btn-nav:hover {
+    background-color: var(--hover-color);
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+} */
+
+h1,h2,h3,h4,h5,h6{
+    font-size: inherit;
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.box-shadow {
+    box-shadow: var(--shadow-box-product);
+    /* border: 1px solid rgba(10, 173, 10, 0);
+    border-radius: 5px; */
+}
+
+/* .product:hover
+{
+    box-shadow: var(--shadow);
+    border: solid 1px var(--main-color);
+}
+.product .btn 
+{
+    transition: transform 1s , opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product:hover .btn 
+{
+    opacity: 1;
+    transform: translateY(0%);
+
+} */
+.font-sm {
+    font-size: 0.875rem;
+}
+.font-super-sm {
+    font-size: 0.8rem;
+}
+
+.font-md {
+    font-size: 1.25rem;
+}
+
+.font-lg {
+    font-size: 1.5rem;
+}
+
+.font-xl {
+    font-size: 1.8rem;
+}
+
+.font-xxl {
+    font-size: 2.2rem;
+}
+
+.font-silder-category {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+
+.font-bold{
+    font-weight: 700;
+}
+.font-simibold{
+    font-weight: 600;
+}
+
+.font-super-bold{
+    font-weight: 900;
+}
+.font-no-bold{
+    font-weight: 500;
+}
+
+.text-main {
+    color: var(--main-color);
+}
+.main-color {
+    color: var(--main-color);
+}
+.second-color {
+    color: var(--second-color);
+}
+
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+    background-color: var(--light-color) !important;
+}

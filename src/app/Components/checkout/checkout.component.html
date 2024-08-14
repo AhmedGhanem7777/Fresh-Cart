@@ -1,0 +1,21 @@
+<div class="container payment py-5 my-5">
+    <div class="w-50 mx-auto bg-main-light p-5 rounded-2">
+        <h2 class="font-lg font-bold second-color mx-auto py-2 px-5">Check Out</h2>
+        <div class="form-pay py-5 px-4 mt-5">
+            <h3 class="font-bold second-color">Cart totals</h3>
+            <form class="mt-4 px-3" [formGroup]="shippingAddressForm">
+                <h4 class="font-bold">SubTotal :<span class="ms-2 main-color">EGP {{totalPrice}}</span></h4>
+                <input formControlName="city" type="text" class="form-control my-2" placeholder="Enter Your City Name">
+                <input formControlName="phone" type="tel" class="form-control my-2" placeholder="Enter Your Phone">
+                <textarea formControlName="details" cols="3" rows="3" type="text" class="form-control my-2" placeholder="Details"></textarea>
+    
+                <div class="d-flex justify-content-between">
+                    <button (click)="handleCash(shippingAddressForm,cartId)" class="btn-payment-cash mt-2"><img src="../../../assets/img/cash1-DfoK3QaK.png" class="img-pay" alt="cash">Cash Order</button>
+                    <button (click)="handlePayOnline(shippingAddressForm,cartId)" class="btn-payment-online mt-2"><img src="../../../assets/img/online1-CDuK_NPr.png" class="img-pay" alt="online">Online Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

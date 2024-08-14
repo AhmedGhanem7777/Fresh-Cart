@@ -1,0 +1,21 @@
+.change-pass {
+    border-radius: 10px;
+}
+.change-pass label{
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.change-pass .update-btn{
+    border: none;
+    border-radius: 7px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 800;
+    padding: 7px 14px;
+    transition: all 0.3s;
+}
+
+.change-pass .update-btn:hover{
+    background-color: #082f49;
+}

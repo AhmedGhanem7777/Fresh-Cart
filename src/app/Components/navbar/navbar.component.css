@@ -1,0 +1,117 @@
+nav{
+    z-index: 1111;
+}
+.navbar{
+    background-color: rgb(240 243 242) !important;
+}
+.nav-active {
+    color: var(--main-color) !important;
+    font-weight: 900;
+}
+
+.main-color{
+    color: var(--main-color);
+}
+.second-color{
+    color: var(--second-color);
+}
+
+.link{
+    color: rgb(107 114 128);
+    transition: all 0.3s;
+}
+.link:hover{
+    color: var(--main-color);
+}
+
+
+.nav-item .nav-link .badge-info{
+
+    background-color: var(--main-color);
+}
+
+
+
+/* Social-media */
+.social-media i{
+    transition: all 0.4s;
+}
+
+.social-media i:hover{
+    transform: translateY(-10px);
+}
+
+.facebook {
+    color: rgb(8 102 255);
+}
+
+.insta {
+    color: rgb(255 17 91);
+}
+
+.twitter {
+    color: var(--second-color);
+}
+
+.linked-in {
+    color: rgb(10 102 194);
+}
+
+
+.heart,
+.cart {
+    color: var(--second-color);
+    margin: 0 8px;
+}
+
+
+.dropdown a img{
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    position: relative;
+}
+
+
+.dropdown-menu{
+    
+    width: 400px;
+    height: 160px;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 100% !important;
+    right: 25% !important;
+}
+
+.dropdown-menu .profile{
+    padding: 5px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+.dropdown-menu .profile .image {
+    width: fit-content !important;
+}
+.dropdown-menu .profile .image img{
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    /* transform: scale(0.6); */
+}
+
+
+.dropdown-menu .profile .info .email-user{
+    color: rgba(148 ,163 ,184,0.6);
+}
+
+
+.profile-setting:hover,
+.log-out:hover{
+    border-radius: 10px;
+    background-color: rgba(148 ,163 ,184,0.1);
+}
+
+
+.log-out a i{
+    transform: rotate(180deg);
+}

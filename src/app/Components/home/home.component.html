@@ -1,0 +1,54 @@
+<section class="home-section my-5 py-5">
+    <div class="container">
+        <div class="row">
+            <app-home-slider></app-home-slider>
+            <div class="col-md-12">
+                <h2 class="font-lg font-bold second-color">Shope now by popular categories</h2>
+                <app-category-slider></app-category-slider>
+            </div>
+            <div>
+                <h2 class="products-title mt-5 mb-4 font-bold font-xl second-color">Shope now by popular products</h2>
+                <div class="row">
+                    <div class="col-md-3 my-3" *ngFor="let product of allProducts">
+                        <a >
+                            <div class="home-box box-shadow">
+                                <div class="box-layer d-flex justify-content-evenly">
+                                    <i (click)="addToFav(product._id)" class="fa-regular fa-heart my-1 cursor-pointer font-md heart"></i>
+                                    <i (click)="addToCart(product._id)" class="fa-solid fa-cart-plus cursor-pointer font-md cart"></i>
+                                    <i [routerLink]="['/productdetails',product._id]" class="fa-solid fa-eye my-1 cursor-pointer font-md eye"></i>
+                                </div>
+                                <div class="home-image">
+                                    <img [src]="product.imageCover" [alt]="product.category.name" class="w-100">
+                                </div>
+                                <div class="home-info p-3 main-color">
+                                    <h2>{{product.title|cuttext:2}}</h2>
+                                    <h3 class="second-color">{{product.category.name}}</h3>
+                                    <div>
+                                        <span class="brand">{{product.brand.name}}</span>
+                                        <span class="text-dark"> | </span>
+                                        <span class="text-green">Available</span>
+                                    </div>
+                                    <div class="price-rating d-flex justify-content-between mt-3">
+                                        <div class="price">
+                                            <h5>EGP {{product.price}}</h5>
+                                        </div>
+                                        <div class="rating text-dark">
+                                            <a *ngFor="let star of product.ratingsAverage | rating; let i = index">
+                                              <i *ngIf="star === 0" class="fa-solid fa-star rating-color"></i>
+                                              <i *ngIf="star === 1" class="fa-solid fa-star-half-alt rating-color"></i>
+                                              <i *ngIf="star === 2" class="fa-regular fa-star rating-color"></i>
+                                            </a>
+                                            {{product.ratingsAverage | number:'1.1-1'}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

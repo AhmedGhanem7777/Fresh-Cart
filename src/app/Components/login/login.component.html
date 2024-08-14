@@ -1,0 +1,29 @@
+<div class="signin w-50 mx-auto py-5 main-color">
+    <h1 class="text-center font-xxl font-super-bold"><i class="fa-regular fa-user"></i> Login</h1>
+
+    <h3 *ngIf="apiError">{{apiError}}</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="handleLogin(loginForm)"> 
+        <input formControlName="email" type="email" class="form-control my-2" id="email" placeholder="Enter Your Email">
+        <div *ngIf="loginForm.get('email')?.errors&&loginForm.get('email')?.touched" class="alert alert-danger">
+            <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0 p-0">Email is Required</p>
+            <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0 p-0">Email is Invalid</p>
+        </div>
+        
+        <input formControlName="password" type="password" class="form-control my-2" id="password" placeholder="Enter Your Password">
+        <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched" class="alert alert-danger">
+            <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0 p-0">Password is Required</p>
+            <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0 p-0">Password is Invalid</p>
+        </div>
+        
+        <button type="button" class="btn-login mt-2 w-100" type="submit">
+            <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading">Log in</span>
+        </button>
+
+        <div class="d-flex flex-column align-items-center mt-3">
+            <a [routerLink]="['/forgotpass']" class="forgot-pass">Forgot Your Password?</a>
+            <button [routerLink]="['/register']" type="button" class="btn-login mt-2 w-25">Create New Account</button>
+        </div>
+    </form>
+</div>

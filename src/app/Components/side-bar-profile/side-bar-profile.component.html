@@ -1,0 +1,10 @@
+<div id="offcanvasSidebar" [class.show]="isSidebarVisible">
+    <div class="p-3">
+        <h3 routerLink="personaldetail" routerLinkActive="affcanvas-active" class="my-2 cursor-pointer"><i class="fa-solid fa-user-pen me-2"></i>Personal Details</h3>
+        <h3 routerLink="changepass" routerLinkActive="affcanvas-active" class="my-2 cursor-pointer"><i class="fa-solid fa-lock me-2"></i>Change Password</h3>
+        <h3 routerLink="addadress" routerLinkActive="affcanvas-active" class="my-2 cursor-pointer"><i class="fa-solid fa-address-card me-2"></i>Add Address</h3>
+    </div>
+    <div class="arrow-btn d-flex justify-content-center align-items-center cursor-pointer" (click)="toggleSidebar()">
+        <i [class.fa-solid]="true" [class.font-lg]="true" [class.fa-chevron-right]="!isSidebarVisible" [class.fa-chevron-left]="isSidebarVisible"></i>
+    </div>
+</div>

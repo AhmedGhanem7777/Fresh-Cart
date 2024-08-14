@@ -1,0 +1,16 @@
+<section class="brands py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="title py-5">
+                    <h2 class="position-relative text-center font-md main-color">Shop by brand</h2>
+                </div>
+            </div>
+            <div class="col-md-2" *ngFor="let brand of brands">
+                <div [routerLink]="['/branddetails',brand._id]" class="brand-box box-shadow cursor-pointer p-3 my-3">
+                        <img [src]="brand.image" [alt]="brand.name" class="w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

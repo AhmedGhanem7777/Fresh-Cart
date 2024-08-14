@@ -1,0 +1,43 @@
+.payment h2{
+    width: fit-content;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+}
+.form-pay{
+    border: 1px solid #47484a54;
+    border-radius: 10px;
+}
+.form-pay h3{
+    font-size: 17px;
+}
+.form-pay h4{
+    font-size: 16px;
+}
+
+
+.btn-payment-cash,
+.btn-payment-online{
+    width: 45%;
+    border: none;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.btn-payment-cash{
+    background-color: var(--main-color);
+    color: #fff;
+}
+.btn-payment-online{
+    background-color: #fff;
+    color: #000;
+    transition: all 0.5s;
+}
+.btn-payment-online:hover{
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.img-pay{
+    width: 35px;
+}

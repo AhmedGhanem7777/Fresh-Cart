@@ -1,0 +1,97 @@
+<nav
+    class="navbar navbar-expand-sm navbar-light position-fixed top-0 start-0 end-0"
+>
+    <div class="container">
+        <a class="navbar-brand font-lg font-bold second-color"><i class="fa-brands fa-opencart main-color me-2"></i><span> Fresh Cart</span></a>
+        <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link font-nav link" *ngIf="isLogin" [routerLink]="['/home']" routerLinkActive="nav-active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-nav link" *ngIf="isLogin" [routerLink]="['/products']" routerLinkActive="nav-active">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-nav link" *ngIf="isLogin" [routerLink]="['/categories']" routerLinkActive="nav-active">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-nav link" *ngIf="isLogin" [routerLink]="['/brands']" routerLinkActive="nav-active">Brands</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-nav link" *ngIf="isLogin" [routerLink]="['/allorders']" routerLinkActive="nav-active">Orders</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link position-relative heart" *ngIf="isLogin" [routerLink]="['/wishlist']">
+                        <i class="fa-solid fa-heart font-md"></i>
+                        <span class="badge-info position-absolute top-25 start-100 translate-middle badge rounded-pill">{{wishNumber}}</span>
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link position-relative cart" *ngIf="isLogin" [routerLink]="['/cart']">
+                        <i class="fas fa-cart-shopping font-md"></i>
+                        <span class="badge-info position-absolute top-25 start-100 translate-middle badge rounded-pill">{{cartNumber}}</span>
+                    </a>
+                </li>
+                <li class="nav-item social-media d-flex align-items-center justify-content-start mx-3">
+                    <i class="fa-brands fa-facebook mx-1 facebook"></i>
+                    <i class="fa-brands fa-instagram mx-1 insta"></i>
+                    <i class="fa-brands fa-x-twitter mx-1 twitter"></i>
+                    <i class="fa-brands fa-linkedin mx-1 linked-in"></i>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown dropstart">
+                        <a class="nav-link user" *ngIf="isLogin" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img class="cursor-pointer" src="assets/img/user-Csi4vjZh.png" alt="user">
+                        </a>
+                        <div #dropdownMenu class="dropdown-menu box-shadow p-2">
+                          <div class="profile" (click)="hideDropdown()">
+                            <div class="row justify-content-center align-items-center">
+                              <div class="col-md-2">
+                                <div class="image w-100">
+                                  <img class="w-100" src="assets/img/user-Csi4vjZh.png" alt="">
+                                </div>
+                              </div>
+                              <div class="col-md-9">
+                                <div class="info">
+                                  <p class="p-0 m-0 font-bold">{{userProfileData?.name}}</p>
+                                  <span class="email-user">{{userProfileData?.email}}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div (click)="hideDropdown()">
+                            <div class="profile-setting p-1 mt-1 cursor-pointer" [routerLink]="['/profilesetting']">
+                              <a class="cursor-pointer font-bold"><i class="fa-solid fa-gear me-2"></i> Profile Setting</a>
+                            </div>
+                            <div class="log-out p-1 cursor-pointer" (click)="logout()">
+                              <a class="cursor-pointer font-bold"><i class="fa-solid fa-right-from-bracket me-2 text-danger"></i> Log out</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ms-2 font-nav btn-nav" *ngIf="!isLogin" [routerLink]="['/login']" routerLinkActive="nav-active">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ms-2 font-nav btn-nav" *ngIf="!isLogin" [routerLink]="['/register']" routerLinkActive="nav-active">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

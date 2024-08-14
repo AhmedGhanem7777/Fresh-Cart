@@ -1,0 +1,47 @@
+<section class="personal-detail py-5 my-5">
+    <div class="container">
+        <div class="row g-0 p-5">
+            <div class="col-md-6">
+                <div class="image-profile d-flex flex-column align-items-center">
+                    <div class="img d-flex justify-content-center">
+                        <img src="assets/img/user-Csi4vjZh.png" class="img-width" alt="user">
+                    </div>
+                    <div class="btn-upload">
+                        <button>Upload Photo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="personal-info box-shadow p-3 second-color">
+                    <h2 class="text-center font-bold font-lg">Personal Details</h2>
+                    <form [formGroup]="personalDetailsForm" (ngSubmit)="updateUserProfile()"> 
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control my-2" [value]="userProfileData?.name" disabled>
+                        <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your new name">
+                        
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control my-2" [value]="userProfileData?.email" disabled>
+                        <input formControlName="email" type="email" class="form-control" id="email" placeholder="Enter your new email">
+                        
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control my-2" [value]="userProfileData?.phone" disabled>
+                        <input formControlName="phone" type="tel" class="form-control" id="phone" placeholder="Enter your new phone">
+
+                        <button class="update-btn mt-3">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
