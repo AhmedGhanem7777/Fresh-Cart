@@ -1,0 +1,27 @@
+<section class="home-section my-5 py-5">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="col-12 text-center py-5">
+    <app-loading></app-loading>
+  </div>
+
+  <div class="container mt-4" *ngIf="!isLoading">
+    <div class="row">
+      <app-home-slider></app-home-slider>
+      <div class="col-12 mt-5">
+        <h2 class="font-lg font-bold second-color text-center mb-4 fade-in">Shop now by popular categories</h2>
+        <app-category-slider></app-category-slider>
+      </div>
+      <div class="col-12">
+        <h2 class="products-title mt-5 mb-4 font-bold font-xl second-color fade-in">Shop now by popular products</h2>
+
+        <!-- Products Grid -->
+        <div class="row g-4 mt-5">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let product of allProducts; let i = index">
+            <app-product-card [product]="product" [style.animation-delay]="i * 100 + 'ms'"
+              class="product-card"></app-product-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

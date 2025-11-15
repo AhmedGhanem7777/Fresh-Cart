@@ -1,0 +1,39 @@
+<a>
+  <div class="home-box box-shadow">
+    <div class="box-layer d-flex justify-content-evenly">
+      <i (click)="addToFav(product._id)" class="fa-regular fa-heart cursor-pointer font-md heart mb-5"></i>
+      <i (click)="addToCart(product._id)" class="fa-solid fa-cart-plus cursor-pointer font-md cart mb-5"></i>
+      <i [routerLink]="['/public/products/product-details',product._id]"
+        class="fa-solid fa-eye cursor-pointer font-md eye mb-5"></i>
+    </div>
+    <div class="home-image">
+      <img [src]="product.imageCover" [alt]="product.category.name" class="w-100">
+    </div>
+    <div class="home-info p-3 main-color">
+      <h2>{{product.title}}</h2>
+      <h3 class="second-color">{{product.category.name}}</h3>
+      <div>
+        <span class="brand">{{product.brand.name}}</span>
+        <span class="text-dark"> | </span>
+        <span class="text-green">Available</span>
+      </div>
+      <div class="price-rating d-flex justify-content-between mt-3">
+        <div class="price">
+          <h5>EGP <span class="price-value">{{product.price}}</span></h5>
+        </div>
+        <div class="rating">
+          <div class="stars">
+            <ng-container *ngFor="let star of [1,2,3,4,5]">
+              <i class="fas" [class.fa-star]="star <= product.ratingsAverage"
+                [class.fa-star-half-alt]="star - 0.5 <= product.ratingsAverage && star > product.ratingsAverage"
+                [class.fa-star-empty]="star > product.ratingsAverage && !(star - 0.5 <= product.ratingsAverage)"
+                [class.filled]="star <= product.ratingsAverage || (star - 0.5 <= product.ratingsAverage && star > product.ratingsAverage)">
+              </i>
+            </ng-container>
+          </div>
+          <span class="rating-value">{{product.ratingsAverage | number:'1.1-1'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

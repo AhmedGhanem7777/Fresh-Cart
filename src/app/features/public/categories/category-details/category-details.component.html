@@ -1,0 +1,27 @@
+<div class="category-details">
+    <div *ngIf="isLoading" class="col-12 text-center py-5 my-5">
+        <app-loading></app-loading>
+    </div>
+
+    <div class="container py-5" *ngIf="!isLoading">
+        <div class="my-4">
+            <button class="arrow-button d-flex justify-content-center align-items-center" (click)="goBack()">
+                <i class="fa-solid fa-arrow-left font-md"></i>
+            </button>
+        </div>
+
+        <div *ngIf="categoryDetails.length > 0">
+            <div class="row justify-content-center gy-3">
+                <div class="col-md-3" *ngFor="let product of categoryDetails; let i = index">
+                    <app-product-card [product]="product" [style.animation-delay]="i * 100 + 'ms'" class="product-card">
+                    </app-product-card>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center min-vh-50"
+            *ngIf="categoryDetails.length <= 0 && !isLoading">
+            <img src="assets/images/no-product-found-DncxVh9z.png" alt="no product found" class="img-fluid">
+        </div>
+    </div>
+</div>

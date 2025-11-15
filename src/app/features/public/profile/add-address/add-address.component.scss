@@ -1,0 +1,45 @@
+.add-address {
+    width: 90% !important;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .add-address-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s;
+  }
+
+  .add-address-btn:hover{
+    background-color: #082f49;
+  }
+  
+  @media (max-width: 768px) {
+    .add-address {
+      width: 95% !important;
+      padding: 15px !important;
+    }
+  }

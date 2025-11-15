@@ -1,0 +1,62 @@
+<section class="new-password">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="password-card">
+          <div class="key-icon">
+            <div class="icon-circle">
+              <i class="fas fa-key"></i>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <h2 class="title">Create New Password</h2>
+            <p class="subtitle">This password should be different from the previous password.</p>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+            <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()" class="password-form">
+              <div class="password-input-group">
+                <label for="password" class="input-label">New Password</label>
+                <input type="password" id="password" formControlName="password" class="password-input"
+                  [class.is-invalid]="passwordForm.get('password')?.invalid && passwordForm.get('password')?.touched"
+                  placeholder="Enter new password">
+                <div class="input-hint error"
+                  *ngIf="passwordForm.get('password')?.invalid && passwordForm.get('password')?.touched">
+                  {{ getErrorMessage('password') }}
+                </div>
+              </div>
+
+              <div class="password-input-group">
+                <label for="confirmPassword" class="input-label">Confirm Password</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" class="password-input"
+                  [class.is-invalid]="(passwordForm.get('confirmPassword')?.invalid && passwordForm.get('confirmPassword')?.touched) || passwordForm.hasError('mismatch')"
+                  placeholder="Confirm new password">
+                <div class="input-hint error"
+                  *ngIf="(passwordForm.get('confirmPassword')?.invalid && passwordForm.get('confirmPassword')?.touched) || passwordForm.hasError('mismatch')">
+                  {{ getErrorMessage('confirmPassword') }}
+                </div>
+              </div>
+
+              <button type="submit" class="reset-btn"
+                [disabled]="passwordForm.invalid || isLoading || passwordForm.hasError('mismatch') || !passwordForm.get('confirmPassword')?.value">
+                <span *ngIf="!isLoading">Reset Password</span>
+                <span *ngIf="isLoading">
+                  <i class="fas fa-spinner fa-spin me-2"></i>
+                  Resetting...
+                </span>
+              </button>
+            </form>
+
+            <div class="actions">
+              <a [routerLink]="['/auth/login']" class="back-link">
+                <i class="fas fa-chevron-left me-2"></i>
+                Back to login
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

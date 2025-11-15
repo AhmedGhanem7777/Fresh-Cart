@@ -1,0 +1,89 @@
+.bg-main-light{
+    background-color: #f0f3f2 !important;
+}
+
+.payment h2{
+    width: fit-content;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+}
+
+.container.payment {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.container.payment > div {
+    width: 90% !important;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .container.payment > div {
+        width: 100% !important;
+        padding: 15px !important;
+    }
+
+    .form-pay {
+        padding: 15px !important;
+    }
+
+    .btn-payment-cash,
+    .btn-payment-online {
+        width: 100% !important;
+        margin: 5px 0;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .img-pay {
+        width: 25px;
+    }
+}
+
+.form-pay{
+    border: 1px solid #47484a54;
+    border-radius: 10px;
+}
+
+.form-pay h3{
+    font-size: 17px;
+}
+
+.form-pay h4{
+    font-size: 16px;
+}
+
+.btn-payment-cash,
+.btn-payment-online{
+    width: 45%;
+    border: none;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.btn-payment-cash{
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.btn-payment-online{
+    background-color: #fff;
+    color: #000;
+    transition: all 0.5s;
+}
+
+.btn-payment-online:hover{
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.img-pay{
+    width: 35px;
+}

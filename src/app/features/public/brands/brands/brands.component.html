@@ -1,0 +1,21 @@
+<section class="brands py-5">
+    <div *ngIf="isLoading" class="col-12 text-center py-5">
+        <app-loading></app-loading>
+    </div>
+    <div class="container" *ngIf="!isLoading">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="title py-4 py-md-5">
+                    <h2 class="position-relative text-center font-md main-color">Shop by brand</h2>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 fade-in" *ngFor="let brand of brands; let i = index"
+                [style.animation-delay]="(i * 100) + 'ms'">
+                <div [routerLink]="['/public/brands/brand-details', brand._id]"
+                    class="brand-box box-shadow cursor-pointer p-2 p-md-3 my-3">
+                    <img [src]="brand.image" [alt]="brand.name" class="w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

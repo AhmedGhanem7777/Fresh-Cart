@@ -1,0 +1,74 @@
+.input-hint.error {
+    color: #fc8181;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    animation: fadeIn 0.8s 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .back-link {
+    color: #718096;
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+  
+  .back-link:hover {
+    color: var(--main-color);
+    transform: translateX(-5px);
+    background: rgba(0, 180, 232, 0.05);
+  }
+  
+  .back-link i {
+    transition: transform 0.3s ease;
+  }
+  
+  .back-link:hover i {
+    transform: translateX(-4px);
+  }
+  
+
+  /* Enhanced Mobile Responsiveness */
+  /* Handle very small screens */
+  @media (max-width: 320px) {
+    .new-password {
+      padding: 0.5rem;
+    }
+  
+    .card-content {
+      padding: 0 1rem 1rem;
+    }
+  
+    .title {
+      font-size: 1.125rem;
+    }
+  }
+  
+  /* Handle landscape orientation */
+  @media (max-height: 600px) and (orientation: landscape) {
+    .new-password {
+      padding: 1rem;
+      min-height: auto;
+    }
+  
+    .key-icon {
+      padding: 1.5rem 0;
+    }
+  
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .card-content {
+      padding: 0 1.5rem 1.5rem;
+    }
+  }
+

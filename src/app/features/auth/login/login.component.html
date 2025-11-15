@@ -1,0 +1,64 @@
+<section class="login-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="login-card">
+          <div class="user-icon">
+            <div class="icon-circle">
+              <i class="fas fa-user" aria-label="User Icon"></i>
+            </div>
+          </div>
+          <div class="card-content">
+            <h2 class="title">Welcome Back</h2>
+            <p class="subtitle">Sign in to continue to your account</p>
+            <p class="api-error my-3 text-center" *ngIf="apiError">{{ apiError }}</p>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" class="login-form" novalidate>
+              <div class="input-group">
+                <label for="email" class="input-label" aria-label="Email Address">Email address</label>
+                <input type="email" id="email" formControlName="email" class="form-input"
+                  [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+                  placeholder="Enter your email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="input-hint"
+                  *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="password" class="input-label" aria-label="Password">Password</label>
+                <input type="password" id="password" formControlName="password" class="form-input"
+                  [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                  placeholder="Enter your password">
+                <div class="input-hint"
+                  *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                  <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+                  <span *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters
+                    long.</span>
+                  <span *ngIf="loginForm.get('password')?.errors?.['pattern']">Password must start with an uppercase
+                    letter and contain only lowercase letters or digits.</span>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn" [disabled]="loginForm.invalid || isLoading">
+                <span *ngIf="!isLoading">Log in</span>
+                <span *ngIf="isLoading">
+                  <i class="fas fa-spinner fa-spin me-2"></i> Signing in...
+                </span>
+              </button>
+
+              <div class="actions">
+                <a [routerLink]="['../forgot-pass']" class="forgot-link" aria-label="Forgot your password?">Forgot your
+                  password?</a>
+                <button type="button" class="create-account-btn" [routerLink]="['../register']"
+                  aria-label="Create New Account">
+                  Create New Account
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

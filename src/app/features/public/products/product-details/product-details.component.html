@@ -1,0 +1,70 @@
+<section class="product-details py-5 my-5">
+    <div *ngIf="isLoading" class="col-12 text-center py-5">
+        <app-loading></app-loading>
+    </div>
+
+    <div class="container" *ngIf="!isLoading">
+        <div class="row justify-content-between">
+            <div class="col-md-3">
+                <div class="product-slider">
+
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-container *ngFor="let image of productDetails.images">
+                            <ng-template carouselSlide>
+                                <img [src]="image" alt="Product Image">
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+
+                </div>
+            </div>
+            <div class="col-md-7 d-flex align-items-center">
+                <div class="product-info">
+                    <div>
+                        <h4 class="second-color font-xlg font-bold">{{productDetails.title}}</h4>
+                        <h2>{{productDetails.category?.name}}</h2>
+                        <p>{{productDetails.brand?.name}} | <span class="color-green">Available</span></p>
+                    </div>
+                    <p class="desc mt-3">{{productDetails.description}}</p>
+                    <div class="price-rating d-flex justify-content-between">
+                        <div class="price">
+                            <p class="main-color font-super-bold">EGP {{productDetails.price}}</p>
+                        </div>
+                        <div class="rating">
+                            <div class="stars">
+                                <ng-container *ngFor="let star of [1,2,3,4,5]">
+                                    <i class="fas" [class.fa-star]="star <= productDetails.ratingsAverage"
+                                        [class.fa-star-half-alt]="star - 0.5 <= productDetails.ratingsAverage && star > productDetails.ratingsAverage"
+                                        [class.fa-star-empty]="star > productDetails.ratingsAverage && !(star - 0.5 <= productDetails.ratingsAverage)"
+                                        [class.filled]="star <= productDetails.ratingsAverage || (star - 0.5 <= productDetails.ratingsAverage && star > productDetails.ratingsAverage)">
+                                    </i>
+                                </ng-container>
+                            </div>
+                            <span class="rating-value">{{productDetails.ratingsAverage | number:'1.1-1'}}</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button class="add-btn" (click)="addToFav(productId)"><i
+                                class="fa-regular fa-heart"></i></button>
+                        <button class="add-btn w-75" (click)="addToCart(productId)"><i
+                                class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="title">
+                            <h3 class="text-center font-bold second-color">Specific Category</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3 my-3" *ngFor="let product of filteredProducts; let i = index">
+                        <app-product-card [product]="product" [style.animation-delay]="i * 100 + 'ms'"
+                            class="product-card"></app-product-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

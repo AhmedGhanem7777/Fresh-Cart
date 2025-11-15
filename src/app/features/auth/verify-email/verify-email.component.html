@@ -1,0 +1,46 @@
+<section class="verify-email">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="verification-card">
+          <div class="email-icon">
+            <div class="icon-circle">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <h2 class="title">Check your email</h2>
+            <p class="subtitle">We've sent a verification code to your email address</p>
+
+            <form (ngSubmit)="onSubmit()" [class.shake-animation]="state.isShaking" class="verification-form">
+              <div class="code-input-group">
+                <label for="email" class="visually-hidden">Verification Code</label>
+                <input type="text" id="email" name="email" class="code-input" placeholder="Enter verification code"
+                  maxlength="6" [(ngModel)]="state.resetCode" [class.is-invalid]="state.isShaking">
+                <div class="code-hint">Enter the digit code</div>
+                <div *ngIf="errorMessage" class="error-message text-center text-danger">{{ errorMessage }}</div>
+              </div>
+
+              <button type="submit" class="verify-btn" [disabled]="isLoading">
+                <span *ngIf="!isLoading">Verify Email</span>
+                <span *ngIf="isLoading">Verifying...</span>
+                <i *ngIf="!isLoading" class="fas fa-arrow-right ms-2"></i>
+              </button>
+            </form>
+
+            <div class="actions">
+              <a [routerLink]="['../forgot-pass']" class="back-link">
+                <i class="fas fa-chevron-left me-2"></i>
+                Back to password reset
+              </a>
+              <button class="resend-btn" (click)="resendCode()" [disabled]="state.timeLeft > 0">
+                {{ state.timeLeft > 0 ? 'Resend code in ' + state.timeLeft + 's' : 'Resend code' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

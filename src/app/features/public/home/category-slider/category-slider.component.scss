@@ -1,0 +1,19 @@
+
+.category-slider img {
+    height: 300px;
+    
+    @media (max-width: 768px) {
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+  
+  .category-slider h5 {
+    color: #0C4368;
+    background-color: #F0F3F2;
+    
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+      padding: 0.5rem !important;
+    }
+  }

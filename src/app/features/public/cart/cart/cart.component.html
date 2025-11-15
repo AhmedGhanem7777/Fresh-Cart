@@ -1,0 +1,113 @@
+<section class="py-5">
+    <div *ngIf="isLoading" class="col-12 text-center py-3">
+        <app-loading></app-loading>
+    </div>
+
+    <div class="container rounded-4" *ngIf="!isLoading">
+        <div class="cart my-3 p-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="head">
+                        <div class="row flex-column flex-md-row">
+                            <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <button (click)="goBack()"
+                                            class="arrow-button d-flex justify-content-center align-items-center"><i
+                                                class="fa-solid fa-arrow-left font-md"></i></button>
+                                    </div>
+                                    <div class="text d-flex align-items-center">
+                                        <h3 class="my-1 mx-2 font-bold font-lg second-color">Shop Cart <i
+                                                class="fa-brands fa-opencart main-color"></i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div
+                                    class="d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="total-price d-flex mb-2 mb-md-0">
+                                        <p class="mb-2 mb-md-0">Total Price: <span class="main-color">EGP
+                                                {{cartDetails.totalCartPrice || 0}}</span></p>
+                                    </div>
+                                    <div class="check-out w-100 w-md-auto d-flex justify-content-end">
+                                        <button [routerLink]="['/public/cart/checkout']" class="w-25 mt-3">Check
+                                            Out</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="cartDetails?.products && cartDetails.products.length > 0">
+                    <div class="col-12 py-3 after-product position-relative"
+                        *ngFor="let product of cartDetails.products">
+                        <div class="row align-items-center">
+                            <div class="col-4 col-md-2 mb-3 mb-md-0">
+                                <div class="image overflow-hidden w-100">
+                                    <img [src]="product?.product?.imageCover" class="w-100 rounded-5 img-border"
+                                        [alt]="product?.product?.category?.name">
+                                </div>
+                            </div>
+                            <div class="col-8 col-md-4 mb-3 mb-md-0">
+                                <div class="info">
+                                    <a [routerLink]="['/productdetails',product?.product?._id]"
+                                        class="font-bold font-md second-color">{{product?.product?.title}}</a>
+                                    <h4 class="mt-2">Rate:<span class="ms-2"><i
+                                                class="fa-solid fa-star rating-color"></i>
+                                            {{product?.product?.ratingsAverage}}</span></h4>
+                                    <h4>Price:<span class="ms-2">EGP {{product.price}}</span></h4>
+                                    <p class="mb-0">{{product?.product?.category?.name}} |
+                                        {{product?.product?.brand?.name}} |
+                                        <span>Available</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-2 mt-3 mt-md-0">
+                                <div>
+                                    <div class="count font-md p-1">
+                                        <button class="btn-plus"
+                                            (click)="updateItemCount(product.product._id,product.count-1)">-</button>
+                                        <span class="mx-3">{{product.count}}</span>
+                                        <button class="btn-minus"
+                                            (click)="updateItemCount(product.product._id,product.count+1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-2 mt-3 mt-md-0">
+                                <div
+                                    class="product-price font-sm d-flex flex-column justify-content-center align-items-start align-items-md-center">
+                                    <p class="p-0 m-0">Total Price</p>
+                                    <span class="font-super-sm main-color">EGP
+                                        {{getPriceForOneProduct(product.price,product.count)}}</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2 mt-3 mt-md-0 text-end text-md-center">
+                                <div class="remove-product">
+                                    <div (click)="removeItem(product.product._id)"
+                                        class="icon-remove d-flex justify-content-center align-items-center cursor-pointer ms-auto me-md-auto">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <div class="my-3">
+                            <button (click)="onClearCart()" class="btn btn-danger remove-all-product"><i
+                                    class="fa-solid fa-trash-can me-2"></i>
+                                Clear All Products</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!cartDetails.products || cartDetails.products.length === 0"
+                    class="d-flex justify-content-center align-items-center">
+                    <div class="my-5 text-center">
+                        <p class="mb-3">There are not products yet.</p>
+                        <button [routerLink]="['/public/products']" class="btn-add-product-fav">Add your first
+                            product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,187 @@
+<div *ngIf="isLoading" class="col-12 text-center my-5 py-5">
+    <app-loading></app-loading>
+</div>
+<section class="container py-5 my-5" *ngIf="!isLoading">
+    <div class="d-flex">
+        <div>
+            <button (click)="goBack()" class="arrow-button d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-arrow-left font-md"></i>
+            </button>
+        </div>
+        <div class="text d-flex align-items-center">
+            <h3 class="my-1 mx-2 font-bold font-lg second-color">Track your orders
+                <i class="fa-solid fa-truck-fast main-color ms-1"></i>
+            </h3>
+        </div>
+    </div>
+
+    <div class="single-order p-4 my-4" *ngFor="let order of userAllOrders">
+        <!-- Order Header -->
+        <div class="head">
+            <div class="row">
+                <div class="col-md-3">
+                    <div>
+                        <p class="font-bold second-color">Transaction Number:
+                            <span class="font-no-bold opacity-75">#{{order.id}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <p class="font-bold second-color">Placed on:
+                            <span class="font-no-bold opacity-75">{{order.createdAt}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <p class="font-bold second-color">Payment:
+                            <span class="font-no-bold opacity-75">{{order.paymentMethodType}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <button class="add-items" [routerLink]="['/public/products']">Add New Items</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-5">
+            <div class="row">
+                <!-- Order Details -->
+                <div class="col-md-8">
+                    <div class="single-product">
+                        <div *ngFor="let info of order.cartItems; let i = index">
+                            <div class="row g-2" *ngIf="i % 2 === 0">
+                                <!-- First Product -->
+                                <div class="col-md-6" *ngIf="order.cartItems[i]">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="image my-2">
+                                                <img [src]="order.cartItems[i].product.imageCover" class="w-100"
+                                                    [alt]="order.cartItems[i].product.title">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info d-flex flex-column">
+                                                <a class="font-simibold second-color">
+                                                    {{order.cartItems[i].product.title | cuttext:2}}
+                                                </a>
+                                                <p class="my-1 second-color">Price:
+                                                    <span class="main-color">EGP {{order.cartItems[i].price}}</span>
+                                                </p>
+                                                <p class="my-1 second-color">Quantity:
+                                                    <span class="main-color">{{order.cartItems[i].count}}</span>
+                                                </p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i].product.category.name}}
+                                                </p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i].product.brand.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Second Product -->
+                                <div class="col-md-6" *ngIf="order.cartItems[i + 1]">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="image">
+                                                <img [src]="order.cartItems[i + 1].product.imageCover" class="w-100"
+                                                    [alt]="order.cartItems[i+1].product.category.name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info d-flex flex-column">
+                                                <a class="font-simibold second-color">
+                                                    {{order.cartItems[i + 1].product.title | cuttext:2}}
+                                                </a>
+                                                <p class="my-1 second-color">Price:
+                                                    <span class="main-color">EGP {{order.cartItems[i + 1].price}}</span>
+                                                </p>
+                                                <p class="my-1 second-color">Quantity:
+                                                    <span class="main-color">{{order.cartItems[i + 1].count}}</span>
+                                                </p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i +
+                                                    1].product.category.name}}</p>
+                                                <p class="my-1 opacity-75">{{order.cartItems[i + 1].product.brand.name}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Status -->
+                <div class="col-md-2">
+                    <div class="status-order-wrapper">
+                        <div class="status-order">
+                            <div class="status-line"></div>
+                            <div class="status-steps">
+                                <div class="status-step">
+                                    <div class="status-dot ordered">
+                                        <div class="inner-dot"></div>
+                                    </div>
+                                    <span class="status-label">Ordered</span>
+                                </div>
+                                <div class="status-step">
+                                    <div class="status-dot confirmed">
+                                        <div class="inner-dot"></div>
+                                    </div>
+                                    <span class="status-label">Confirmed</span>
+                                </div>
+                                <div class="status-step">
+                                    <div class="status-dot {{order.isDelivered ? 'active' : 'inactive'}}">
+                                        <div class="inner-dot"></div>
+                                    </div>
+                                    <span class="status-label">Out for delivery</span>
+                                </div>
+                                <div class="status-step">
+                                    <div class="status-dot {{order.isDelivered ? 'active' : 'inactive'}}">
+                                        <div class="inner-dot"></div>
+                                    </div>
+                                    <span class="status-label">Delivered</span>
+                                </div>
+                                <div class="status-step">
+                                    <div class="status-dot {{order.isPaid ? 'active' : 'inactive'}}">
+                                        <div class="inner-dot"></div>
+                                    </div>
+                                    <span class="status-label">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="col-md-12">
+                    <div class="total-price mt-3">
+                        <p class="font-bold second-color">Products Quantity:
+                            <span class="main-color">{{order.cartItems.length}}</span>
+                        </p>
+                        <p class="font-bold second-color">Shipping Price:
+                            <span class="main-color">EGP {{order.shippingPrice}}</span>
+                        </p>
+                        <p class="font-bold second-color">Taxes:
+                            <span class="main-color">EGP {{order.taxPrice}}</span>
+                        </p>
+                        <p class="font-bold second-color total">Total Order Price:
+                            <span class="main-color">EGP {{order.totalOrderPrice}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="userAllOrders.length <= 0" class="empty-state">
+        <div>
+            <p>There are no orders yet.</p>
+            <button [routerLink]="['/public/products']" class="btn-add-product-fav">Add your first order</button>
+        </div>
+    </div>
+</section>

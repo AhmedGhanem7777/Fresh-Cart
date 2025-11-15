@@ -1,0 +1,82 @@
+.personal-detail .img-width{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .personal-detail .img-width {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .personal-detail .row {
+        margin: 0; 
+    }
+    
+    .personal-detail .col-md-6,
+    .personal-detail .col-md-4 {
+        padding: 15px; 
+    }
+    
+    .personal-detail .container {
+        padding: 0; 
+    }
+    
+    .personal-detail .p-5 {
+        padding: 1rem !important;
+    }
+}
+
+.personal-detail .btn-upload button{
+    margin-top: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    background-color: #fff;
+    color: var(--main-color);
+    padding: 8px 16px;
+    transition: all 0.5s;
+}
+
+.personal-detail .btn-upload button:hover{
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.personal-detail .personal-info{
+    border-radius: 20px;
+}
+
+.personal-detail .personal-info label{
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.personal-detail .update-btn{
+    border: none;
+    border-radius: 7px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 800;
+    padding: 7px 14px;
+    transition: all 0.3s;
+    width: 100%; 
+}
+
+.personal-detail .update-btn:hover{
+    background-color: #082f49;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
